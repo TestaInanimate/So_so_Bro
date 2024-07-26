@@ -1,5 +1,14 @@
 cmake_minimum_required(VERSION 3.28.3 FATAL_ERROR )
 
-project(So_so_bro)
+set(PROJECT_NAME So_so_bro)
+project(${PROJECT_NAME})
 
-add_executable(So_so_bro src/main.cpp)
+add_executable(${PROJECT_NAME} src/main.cpp)
+
+set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+set(GLFW_INSTALL OFF CACHE BOOL "" FORCE)
+
+add_subdirectory(external/glfw)
+target_link_libraries(${PROJECT_NAME} glfw)
